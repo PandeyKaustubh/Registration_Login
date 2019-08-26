@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title> Your Data</title>
+
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="Form.js"></script>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: aqua;
+        }
+
+    </style>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <script>
+        function show() {
+
+            var user, pass;
+
+            var user = localStorage.getItem("Username");
+            var pass = localStorage.getItem("Password");
+
+
+            localStorage.removeItem("Username");
+            localStorage.removeItem("Password");
+
+
+            var j = {
+                "Username": user,
+                "Password": pass
+            };
+
+            var s = JSON.stringify(j);
+
+
+            request(s);
+
+
+
+        }
+
+        function request(a) {
+
+
+
+            var xmlhttp = new XMLHttpRequest();
+            var data;
+
+
+            xmlhttp.onreadystatechange = function() {
+
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                    data = JSON.parse(xmlhttp.response);
+
+                    if (data.status == "Wrongpass") {
+                        alert("Wrong Password!!");
+                        window.location.href = "/home/kp_d_best/Desktop/ERP/Login/Login.html";
+                    } else if (data.Status == "invalid") {
+                        alert("Invalid Username");
+                        window.location.href = "/home/kp_d_best/Desktop/ERP/Login/Login.html";
+
+                    } else if (data[0].link__Fname) {
+                        alert("Welcome !");
+                        document.getElementById("Fname").innerHTML = data[0].link__Fname;
+                        document.getElementById("Lname").innerHTML = data[0].link__Lname;
+                        document.getElementById("Mobile_no").innerHTML = data[0].link__Mobile_no;
+                        document.getElementById("Email").innerHTML = data[0].link__Email;
+                        document.getElementById("HighestQualification").innerHTML = data[0].link__HighestQualification;
+                        document.getElementById("Add").innerHTML = data[0].link__Address;
+                        document.getElementById("City").innerHTML = data[0].link__City;
+                        document.getElementById("State").innerHTML = data[0].link__State;
+                        document.getElementById("PinCode").innerHTML = data[0].link__PinCode;
+                        document.getElementById("School").innerHTML = data[0].link__School;
+                        document.getElementById("Gender").innerHTML = data[0].link__Gender;
+
+                    }
+
+                }
+            }
+
+            xmlhttp.open("POST", "http://127.0.0.1:8000/data/", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(a);
+
+        }
+
+        show();
+
+    </script>
+
+    <table border="2px" align="center">
+
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>Email</th>
+            <th>HighestQualification</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>PinCode</th>
+            <th>School</th>
+            <th>Gender</th>
+        </tr>
+
+
+        <tr>
+            <td id="Fname"> </td>
+            <td id="Lname"></td>
+            <td id="Mobile_no"></td>
+            <td id="Email"></td>
+            <td id="HighestQualification"></td>
+            <td id="Add"></td>
+            <td id="City"></td>
+            <td id="State"></td>
+            <td id="PinCode"></td>
+            <td id="School"></td>
+            <td id="Gender"></td>
+        </tr>
+
+
+    </table>
+
+</body>
+
+</html>

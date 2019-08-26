@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="Form.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Form.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <center>
+            <h1 id="K" style="font-family: sans-serif ">Registration Form</h1>
+        </center>
+        <div class="col-lg-12 well">
+            <div class="row">
+                <form>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label>First Name</label>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <input type="text" placeholder="Enter First Name Here.." class="form-control" id="Fname">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Last Name</label>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <input type="text" placeholder="Enter Last Name Here.." class="form-control" id="Lname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <span class="glyphicon glyphicon-globe"></span>
+                            <textarea placeholder="Enter Address Here.." rows="3" class="form-control" id="Add"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+                                <label>City</label>
+                                <span class="glyphicon glyphicon-home"></span>
+                                <input type="text" placeholder="Enter City Name Here.." class="form-control" id="City">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>State</label>
+                                <span class="glyphicon glyphicon-home"></span>
+                                <input type="text" placeholder="Enter State Name Here.." class="form-control" id="State">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label>Zip</label>
+                                <span class="glyphicon glyphicon-paperclip"></span>
+                                <input type="text" placeholder="Enter Zip Code Here.." class="form-control" id="Pin">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label>School</label>
+                                <span class="glyphicon glyphicon-education"></span>
+                                <input type="text" placeholder="Enter School/Board Here.." class="form-control" id="School">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label>Highest Qualification</label>
+                                <span class="glyphicon glyphicon-education"></span>
+                                <input type="text" placeholder="Enter Highest Qualification Here.." class="form-control" id="HighestQualification">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            <input type="text" placeholder="Enter Phone Number Here.." class="form-control" id="Mobile_no" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <span class="glyphicon glyphicon-envelope"> </span> <br>
+                            <input type="text" placeholder="Enter Email Address Here.." class="form-control" id="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <i class="fa fa-intersex"></i> <br>
+                            <input type="radio" value="MALE" name="RDB">MALE
+                            <input type="radio" value="FEMALE" name="RDB">FEMALE
+                            <input type="radio" value="OTHERS" name="RDB">OTHERS
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+                                <label>Username</label>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <input type="text" placeholder="Enter Userame Here.." class="form-control" id="User">
+                            </div>
+
+
+                            <div class="col-sm-4 form-group">
+                                <label>Password</label>
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <input type="password" placeholder="Enter Password Here.." class="form-control" id="Pass">
+                            </div>
+                            <script>
+                                function confirm() {
+
+                                    document.getElementById('msg6').innerHTML = null;
+                                    var f = document.getElementById('Pass').value;
+                                    var g = document.getElementById('CPass').value;
+                                    if ((f.length > 10)) {
+                                        document.getElementById('msg6').innerHTML = "Password should be 9 digits only";
+
+                                    }
+                                    if (f != g) {
+                                        document.getElementById('msg6').innerHTML = "Dont use imp. Passwords we dont spend on security ! Password doesn't match !";
+                                    }
+                                }
+
+                            </script>
+                            <div class="col-sm-4 form-group">
+                                <label>Confirm Password</label>
+                                <span class="glyphicon glyphicon-eye-close"></span>
+                                <input type="password" placeholder="Confirm Password Here.." class="form-control" oninput="confirm()" id="CPass">
+                                <span id="msg6" class="text-warning"></span>
+                            </div>
+                        </div>
+
+                        <center>
+                            <button type="button" class="btn btn-lg btn-info" name="Submit" value="Submit" onclick="Myfunc();">Submit</button></center>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <center>
+            <h2 id="K" style="font-family: serif;">Already a user ?</h2>
+            <button type="button" class="btn btn-lg btn-info" onclick="window.location.href='/home/kp_d_best/Desktop/ERP/Login/Login.html'">Login</button>
+        </center>
+    </div>
+
+</body>
+
+</html>
