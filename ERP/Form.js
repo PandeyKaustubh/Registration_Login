@@ -34,6 +34,7 @@ function Myfunc() {
         "Password": pass,
         "Gender": gen
 
+
     };
 
 
@@ -87,3 +88,4 @@ function request(a) {
 
 
 }
+This is the code for form validation
